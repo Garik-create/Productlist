@@ -23,6 +23,10 @@ public class Product {
 
     }
 
+    public static Double countProductsCost(Product product) {
+        return product.getPrice() * product.getAmount();
+    }
+
 
 
     public boolean isBought() {
@@ -65,8 +69,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Продукт " + productName + ", цена за килограмм " + price +
-                ", вес " + amount + " кг.\n";
+        return "\nПродукт " + productName + ", цена за килограмм " + price +
+                ", вес " + amount + " кг.";
     }
 
     @Override
