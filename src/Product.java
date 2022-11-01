@@ -9,10 +9,7 @@ public class Product {
 
     private boolean isBought;
 
-
-
-
-    public Product(String productName, Double price, Double amount,boolean isBought) {
+    public Product(String productName, Double price, Double amount, boolean isBought) {
         if (productName != null && !productName.isEmpty() && !productName.isBlank()) {
             this.productName = productName;
         } else {
@@ -20,10 +17,27 @@ public class Product {
         }
         setPrice(price);
         setAmount(amount);
-
     }
 
 
+    @Override
+    public String toString() {
+        return "Продукт " + productName + ", цена за килограмм " + price +
+                ", вес " + amount + " кг.\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return getProductName().equals(product.getProductName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProductName());
+    }
 
     public boolean isBought() {
         return isBought;
@@ -36,8 +50,6 @@ public class Product {
     public String getProductName() {
         return productName;
     }
-
-
 
     public Double getPrice() {
         return price;
@@ -61,25 +73,5 @@ public class Product {
         } else {
             throw new RuntimeException("Заполните карточку товара полностью.");
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Продукт " + productName + ", цена за килограмм " + price +
-                ", вес " + amount + " кг.\n";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        throw new RuntimeException("Продукт " + getProductName() + " уже есть в списке.");
-//        return getProductName().equals(product.getProductName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getProductName());
     }
 }

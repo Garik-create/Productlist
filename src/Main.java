@@ -10,25 +10,25 @@ public class Main {
         Set<Product> products = new HashSet<>();
 
         Product banana = new Product("бананы", 70.5, 1.5, false);
-        products.add(banana);
+        addProductToProducts(products,banana);
         Product meet = new Product("мясо", 380.99, 3.5, true);
-        products.add(meet);
+        addProductToProducts(products,meet);
         Product apple = new Product("Яблоки", 100.99, 3.0,true);
-        products.add(apple);
+        addProductToProducts(products,apple);
         Product cucumber = new Product("огурцы", 60.0, 3.0,true);
-        products.add(cucumber);
+        addProductToProducts(products,cucumber);
         Product tomato = new Product("помидоры", 70.0, 2.5, true);
-        products.add(tomato);
+        addProductToProducts(products,tomato);
         Product carrot = new Product("Морковь", 20.6, 2.0, true);
-        products.add(carrot);
+        addProductToProducts(products,carrot);
         Product sweet = new Product("печенье", 130.0, 2.5, true);
-        products.add(sweet);
+        addProductToProducts(products,sweet);
         Product bred = new Product("Хлеб", 50.0, 1.5, true);
-        products.add(bred);
+        addProductToProducts(products,bred);
         Product butter = new Product("масло", 140.0, 0.25, true);
-        products.add(butter);
+        addProductToProducts(products,butter);
         Product cheese = new Product("сыр", 270.5, 0.45, true);
-        products.add(cheese);
+        addProductToProducts(products,cheese);
 //        Product second = new Product("бананы", 120.0, 1.5);
 //        products.add(second);
 
@@ -40,5 +40,11 @@ public class Main {
         products.remove(banana);
         System.out.println(Arrays.toString(products.toArray()));
 
+    }
+
+    public static void addProductToProducts(Set<Product> products, Product product) {
+        if (!products.add(product)) {
+            throw new RuntimeException("Продукт " + product.getProductName() + " уже есть в списке.");
+        }
     }
 }
