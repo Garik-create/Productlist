@@ -1,8 +1,7 @@
 import com.sun.source.doctree.SeeTree;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.text.DecimalFormat;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,42 +18,63 @@ public class Main {
         Product butter = new Product("масло", 140.0, 0.25, true);
         Product cheese = new Product("сыр", 270.5, 0.45, true);
 
-        Set<Product> products1 = new HashSet<>();
-        products1.add(banana);
-        products1.add(apple);
-        products1.add(carrot);
+        Map<Product, Double> products1 = new HashMap<>();
+        products1.put(banana,1.5);
+        products1.put(apple,3.0);
+        products1.put(carrot,2.0);
         System.out.println(products1);
 
         double sumProduct1 = 0.0;
+        for (Map.Entry<Product, Double> product : products1.entrySet()) {
+            double v = product.getKey().getPrice() * product.getValue();
+            sumProduct1 += v;
+        }
+        System.out.printf("sum = %.2f\n", sumProduct1);
+
+        /*double sumProduct1 = 0.0;
         for (Product product : products1) {
             sumProduct1 += Product.countProductsCost(product);
         }
-        System.out.println("sum = " + sumProduct1);
+        System.out.println("sum = " + sumProduct1);*/
 
 
-        Set<Product> products2 = new HashSet<>();
-        products2.add(cucumber);
-        products2.add(tomato);
-        products2.add(apple);
+        Map<Product, Double> products2 = new HashMap<>();
+        products2.put(cucumber,3.0);
+        products2.put(tomato,2.5);
+        products2.put(apple,3.0);
         System.out.println(products2);
 
         double sumProduct2 = 0.0;
+        for (Map.Entry<Product, Double> product : products2.entrySet()) {
+            double v = product.getKey().getPrice() * product.getValue();
+            sumProduct2 += v;
+        }
+        System.out.printf("sum = %.2f\n", sumProduct2);
+
+       /* double sumProduct2 = 0.0;
         for (Product product : products2) {
             sumProduct2 += Product.countProductsCost(product);
         }
-        System.out.println("sum = " + sumProduct2);
+        System.out.println("sum = " + sumProduct2);*/
 
-        Set<Product> products3 = new HashSet<>();
-        products3.add(meet);
-        products3.add(cheese);
-        products3.add(carrot);
+        Map<Product, Double> products3 = new HashMap<>();
+        products3.put(meet,1.5);
+        products3.put(cheese,0.45);
+        products3.put(carrot,2.0);
         System.out.println(products3);
 
         double sumProduct3 = 0.0;
+        for (Map.Entry<Product, Double> product : products3.entrySet()) {
+            double v = product.getKey().getPrice() * product.getValue();
+            sumProduct3 += v;
+        }
+        System.out.printf("sum = %.2f\n",sumProduct3);
+
+    /*    double sumProduct3 = 0.0;
         for (Product product : products3) {
             sumProduct3 += Product.countProductsCost(product);
         }
-        System.out.println("sum = " + sumProduct3);
+        System.out.println("sum = " + sumProduct3);*/
 
 
         Recipe recipe1 = new Recipe(products1, sumProduct1, "Рецепт 1");
