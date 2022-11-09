@@ -39,8 +39,7 @@ public class Recipe {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        throw new RuntimeException("Рецепт " + getRecipeName() + " уже есть в списке.");
-//        return getRecipeName().equals(recipe.getRecipeName());
+        return getRecipeName().equals(recipe.getRecipeName());
     }
 
     @Override

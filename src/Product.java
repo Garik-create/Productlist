@@ -78,8 +78,7 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        throw new RuntimeException("Продукт " + getProductName() + " уже есть в списке.");
-//        return getProductName().equals(product.getProductName());
+        return getProductName().equals(product.getProductName());
     }
 
     @Override

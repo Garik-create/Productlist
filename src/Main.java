@@ -1,6 +1,4 @@
-import com.sun.source.doctree.SeeTree;
 
-import java.text.DecimalFormat;
 import java.util.*;
 
 public class Main {
@@ -26,17 +24,10 @@ public class Main {
 
         double sumProduct1 = 0.0;
         for (Map.Entry<Product, Double> product : products1.entrySet()) {
-            double v = product.getKey().getPrice() * product.getValue();
-            sumProduct1 += v;
+            double value = product.getKey().getPrice() * product.getValue();
+            sumProduct1 += value;
         }
         System.out.printf("sum = %.2f\n", sumProduct1);
-
-        /*double sumProduct1 = 0.0;
-        for (Product product : products1) {
-            sumProduct1 += Product.countProductsCost(product);
-        }
-        System.out.println("sum = " + sumProduct1);*/
-
 
         Map<Product, Double> products2 = new HashMap<>();
         products2.put(cucumber,3.0);
@@ -51,12 +42,6 @@ public class Main {
         }
         System.out.printf("sum = %.2f\n", sumProduct2);
 
-       /* double sumProduct2 = 0.0;
-        for (Product product : products2) {
-            sumProduct2 += Product.countProductsCost(product);
-        }
-        System.out.println("sum = " + sumProduct2);*/
-
         Map<Product, Double> products3 = new HashMap<>();
         products3.put(meet,1.5);
         products3.put(cheese,0.45);
@@ -69,13 +54,6 @@ public class Main {
             sumProduct3 += v;
         }
         System.out.printf("sum = %.2f\n",sumProduct3);
-
-    /*    double sumProduct3 = 0.0;
-        for (Product product : products3) {
-            sumProduct3 += Product.countProductsCost(product);
-        }
-        System.out.println("sum = " + sumProduct3);*/
-
 
         Recipe recipe1 = new Recipe(products1, sumProduct1, "Рецепт 1");
         Recipe recipe2 = new Recipe(products2, sumProduct2, "Рецепт 2");
